@@ -29,3 +29,6 @@ def main():
         filtered_articles = filter_articles(articles, keywords)
         processed_articles.append(filtered_articles)
     return processed_articles
+
+if __name__ == "__main__":
+    main()
