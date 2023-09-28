@@ -45,9 +45,11 @@ def main():
     processed_articles = []
     for i in config_to_feed():
         articles = fetch_rss_feed(i)
-        keywords = config['context_keys']
-        filtered_articles = filter_articles(articles, keywords)
+        filtered_articles = articles
+        # keywords = config['context_keys']
+        # filtered_articles = filter_articles(articles, keywords)
         processed_articles.append(filtered_articles)
+        print(processed_articles)
     final_articles = []
     for article in processed_articles:
         if article == [] or article == None:
@@ -59,4 +61,5 @@ def main():
     return final_articles
 
 if __name__ == "__main__":
-    print(main())
+    for i in config_to_feed():
+        fetch_rss_feed(i)
