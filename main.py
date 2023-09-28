@@ -61,5 +61,6 @@ def main():
     return final_articles
 
 if __name__ == "__main__":
-    for i in config_to_feed():
-        fetch_rss_feed(i)
+    pass
+    # for i in config_to_feed():
+    #     fetch_rss_feed(i)
