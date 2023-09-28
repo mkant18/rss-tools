@@ -9,6 +9,17 @@ try:
 except:
     print("Error loading environment.yml")
 
+class Article:
+    def __init__(self, title, summary, link):
+        self.title = title
+        self.summary = summary
+        self.link = link
+
+    def __str__(self):
+        return f"{self.title}\n{self.summary}\n{self.link}\n"
+
+    def __repr__(self):
+        return f"{self.title}\n{self.summary}\n{self.link}\n"
 
 
 def config_to_feed():
@@ -37,12 +48,15 @@ def main():
         keywords = config['context_keys']
         filtered_articles = filter_articles(articles, keywords)
         processed_articles.append(filtered_articles)
-    return processed_articles
+    final_articles = []
+    for article in processed_articles:
+        if article == [] or article == None:
+            pass
+        else:
+            print(article)
+            current = Article(article.title, article.summary, article.link)
+            final_articles.append(current)
+    return final_articles
 
 if __name__ == "__main__":
-    outputs = main()
-    print(type(outputs))
-    print(type(outputs[0]))
-    print(type(outputs[0][0]))
-    print(outputs[0][0].keys())
-    print(outputs[0][0].summary)
+    print(main())
